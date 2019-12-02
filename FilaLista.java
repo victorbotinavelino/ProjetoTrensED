@@ -1,5 +1,5 @@
 
-class FilaLista<Dado> : ListaSimples<Dado>
+class FilaLista<Dado> extends ListaSimples<Dado>
 {
   public void enfileirar(Dado elemento) // inclui objeto “elemento”
   {
@@ -10,7 +10,7 @@ class FilaLista<Dado> : ListaSimples<Dado>
   {                     // retira da fila
     if (!estaVazia())
     {
-      Dado elemento = super.primeiro.Info;
+      Caminho elemento = super.primeiro.Info;
       super.removerNo(null, Primeiro);
       return elemento;
     }
