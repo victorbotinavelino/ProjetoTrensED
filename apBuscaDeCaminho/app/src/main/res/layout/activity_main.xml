@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="De"
-                android:textSize="12pt"
+                android:textSize="10pt"
                 android:textColor="#000000"
                 android:textAlignment="center"
                 />
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Para"
-                android:textSize="12pt"
+                android:textSize="10pt"
                 android:textColor="#000000"
                 android:textAlignment="center"
                 />
@@ -65,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="15pt">
+        android:layout_marginTop="5pt">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,10 +73,11 @@
             android:background="#FFD096"
             android:textSize="8pt"/>
     </LinearLayout>
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="50pt"
-         android:layout_marginTop="8pt"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginTop="2pt"></LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,7 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Resultados"
-            android:textSize="12pt"
+            android:textSize="10pt"
             android:textColor="#000000"
             android:textAlignment="center"
             android:layout_marginBottom="2pt"
@@ -96,9 +97,9 @@
         <TextView
             android:id="@+id/txtResultados"
             android:layout_width="150pt"
-            android:layout_height="wrap_content"
+            android:layout_height="20pt"
             android:text="..."
-            android:textSize="12pt"
+            android:textSize="8pt"
             android:textColor="#000000"
             android:textAlignment="center"
             android:background="#FFD096"
