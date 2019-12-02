@@ -1,4 +1,4 @@
-﻿public class ListaSimples
+﻿public class ListaSimples<Dado extends Comparable<Dado> & Serializable> implements Comparable & Serializable
 {
     private NoLista primeiro, ultimo, anterior, atual;
     int quantosNos;
