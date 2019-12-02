@@ -23,25 +23,25 @@
         //Getters dos atributos:
         public int getIdCidade()
         {
-             return idCidade;
+             return this.idCidade;
         }
         public String getNome() 
         {
-             return nome;
+             return this.nome;
         }
         public int getCoordenadaX()
         {
-             return coordenadaX;
+             return this.coordenadaX;
         }
         public int getCoordenadaY()
         {
-             return coordenadaY;
+             return this.coordenadaY;
         }
 
         // Setters dos atributos:
          public int setIdCidade(int novoId) throws Exception
         {
-             if(novoId == null)
+             if(this.novoId == null)
                     throw new Exception("Parâmetro nulo!");
 
             this.idCidade = novoId;
@@ -50,7 +50,7 @@
 
         public string setNome(String novoNome) 
         { 
-             if(novoNome == null)
+             if(this.novoNome.equals(""))
                     throw new Exception("Parâmetro nulo!");
 
             this.nome = novoNome;
@@ -58,7 +58,7 @@
 
         public int setCoordenadaX(int novaCoordenadaX)
         { 
-             if(novaCoordenadaX == null)
+             if(this.novaCoordenadaX == null)
                     throw new Exception("Parâmetro nulo!");
 
             this.coordenadaX = novaCoordenadaX;
@@ -66,7 +66,7 @@
 
         public int setCoordenadaY(int novaCoordenadaY)
         { 
-             if(novaCoordenadaY == null)
+             if(this.novaCoordenadaY == null)
                     throw new Exception("Parâmetro nulo!");
 
             this.coordenadaY = novaCoordenadaY;
