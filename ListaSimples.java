@@ -8,6 +8,7 @@
         primeiro = ultimo = anterior = atual = null;
         quantosNos = 0;
     }
+
     public void percorrerLista()
     {
         PrintWriter saida = new PrintWriter
@@ -21,7 +22,7 @@
         }
     }
 
-    public boolean estaVazia
+    public boolean estaVazia()
     {
         if(primeiro == null)
         return true;
