@@ -1,8 +1,16 @@
-﻿/// 
+package br.unicamp.cotuca.apbuscadecaminho;
+import java.io.Serializable;
+import java.io.*;
+import java.lang.Comparable;
+import java.lang.*;
+
+
+
+///
 /// Guilherme Salim de Barros - 18188 \\ Victor Botin Avelino - 18172
 ///
 
-class Caminho implements Comparable, Cloneable
+public class Caminho implements Comparable<Caminho>, Serializable
 {
         //Atributos:
         private int idCidadeOrigem;
@@ -41,35 +49,23 @@ class Caminho implements Comparable, Cloneable
             return this.tempo;
         }
 
-        public int setIdCidadeOrigem(int novoId) throws Exception
+        public void setIdCidadeOrigem(int novoId)
         {
-            if(this.novoId.Equals(""))
-                   throw new Exception("Parâmetro nulo!");
-
             this.idCidadeOrigem = novoId;
         }
 
-        public int setIdCidadeDestino(int novoId) throws Exception
+        public void setIdCidadeDestino(int novoId)
         {
-            if(this.novoId.Equals(""))
-                   throw new Exception("Parâmetro nulo!");
-
             this.idCidadeDestino = novoId;
         }
 
-        public int setDistancia(int novaDistancia) throws Exception
+        public void setDistancia(int novaDistancia)
         {
-            if(this.novaDistancia.Equals(""))
-                   throw new Exception("Parâmetro nulo!");
-
             this.distancia = novaDistancia;
         }
 
-        public int setTempo(int novoTempo) throws Exception
+        public void setTempo(int novoTempo)
         {
-            if(this.novoTempo.Equals(""))
-                   throw new Exception("Parâmetro nulo!");
-
             this.tempo = novoTempo;
         }
 
@@ -80,7 +76,7 @@ class Caminho implements Comparable, Cloneable
             this.idCidadeOrigem = Integer.parseInt(s.substring(INICIOIDORIGEM, TAMANHOIDORIGEM)); 
             this.idCidadeDestino = Integer.parseInt(s.substring(INICIOIDDESTINO, TAMANHOIDDESTINO));
             this.distancia = Integer.parseInt(s.substring(INICIODISTANCIA, TAMANHODISTANCIA));
-            this.tempo = Integer.parseInte(s.substring(INICIOTEMPO, TAMANHOTEMPO));
+            this.tempo = Integer.parseInt(s.substring(INICIOTEMPO, TAMANHOTEMPO));
         }   
 
         public int CompareTo(Caminho caminho)
@@ -90,11 +86,11 @@ class Caminho implements Comparable, Cloneable
 
         public Caminho(int idCidadeOrigem, int idCidadeDestino)
         {
-            this.IDCIDADEORIGEM = idCidadeOrigem;
-            this.IDCIDADEDESTINO = idCidadeDestino;
+            this.idCidadeOrigem = idCidadeOrigem;
+            this.idCidadeDestino = idCidadeDestino;
         }
 
-        public Caminho(Caminho modelo)
+        public Caminho(Caminho modelo) throws Exception
         {
             if (modelo == null)
                 throw new Exception("Modelo ausente");
@@ -103,7 +99,6 @@ class Caminho implements Comparable, Cloneable
             this.idCidadeDestino = modelo.idCidadeDestino;
             this.distancia = modelo.distancia;
             this.tempo = modelo.tempo;
-            this.custo = modelo.custo;
         }
 
         public Object Clone()
@@ -120,5 +115,9 @@ class Caminho implements Comparable, Cloneable
 
             return obj;
         }
+
+    public int compareTo(Caminho c)
+    {
+        return this.distancia - c.distancia;
     }
 }

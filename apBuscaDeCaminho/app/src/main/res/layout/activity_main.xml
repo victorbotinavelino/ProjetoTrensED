@@ -73,12 +73,19 @@
             android:background="#FFD096"
             android:textSize="8pt"/>
     </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_gravity="center">
+    <LinearLayout
+        android:layout_width="120pt"
+        android:layout_height="120pt"
+        android:layout_marginTop="2pt"
+        android:background="@drawable/mapa_espanha_portugal"></LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginTop="2pt"></LinearLayout>
-    <LinearLayout
+</LinearLayout>
+      <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

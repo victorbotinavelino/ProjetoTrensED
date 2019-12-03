@@ -1,8 +1,14 @@
-/// 
+package br.unicamp.cotuca.apbuscadecaminho;
+import java.io.Serializable;
+import java.io.*;
+import java.lang.Comparable;
+import java.lang.*;
+
+///
 /// Guilherme Salim de Barros - 18188 \\ Victor Botin Avelino - 18172
 ///
 
-    class Cidade implements Comparable
+    public class Cidade implements Comparable<Cidade>, Serializable
     {
         //Atributos:
         private int idCidade;
@@ -39,43 +45,30 @@
         }
 
         // Setters dos atributos:
-         public int setIdCidade(int novoId) throws Exception
+         public void setIdCidade(int novoId) throws Exception
         {
-             if(this.novoId == null)
-                    throw new Exception("Parâmetro nulo!");
-
             this.idCidade = novoId;
-
         }
 
-        public string setNome(String novoNome) throws Exception
-        { 
-             if(this.novoNome.equals(""))
-                    throw new Exception("Parâmetro nulo!");
-
+        public void setNome(String novoNome) throws Exception
+        {
             this.nome = novoNome;
         }
 
-        public int setCoordenadaX(int novaCoordenadaX) throws Exception
-        { 
-             if(this.novaCoordenadaX.equals(""))
-                    throw new Exception("Parâmetro nulo!");
-
+        public void setCoordenadaX(int novaCoordenadaX) throws Exception
+        {
             this.coordenadaX = novaCoordenadaX;
         }
 
-        public int setCoordenadaY(int novaCoordenadaY) throws Exception
-        { 
-             if(this.novaCoordenadaY.equals(""))
-                    throw new Exception("Parâmetro nulo!");
-
+        public void setCoordenadaY(int novaCoordenadaY) throws Exception
+        {
             this.coordenadaY = novaCoordenadaY;
         }
 
 
         //Construtor da classe. Especificamente, este construtor atribui
         //aos atributos os dados de uma linha do arquivo texto.
-        public cidade(String linhaArquivo)
+        public Cidade(String linhaArquivo)
         {
             this.idCidade = Integer.parseInt(linhaArquivo.substring(INICIOID, TAMANHOID));
             this.nome = linhaArquivo.substring(INICIONOME, TAMANHONOME);
@@ -83,7 +76,7 @@
             this.coordenadaY = Integer.parseInt(linhaArquivo.substring(INICIOY, TAMANHOY));
         }
 
-        public cidade(int i)
+        public Cidade(int i)
         {
             this.idCidade = i;
             this.nome = null;
@@ -93,6 +86,6 @@
 
         public int compareTo(Cidade c)
         {
-            return this.IdCidade - c.IdCidade;
+            return this.idCidade - c.idCidade;
         }
     }
