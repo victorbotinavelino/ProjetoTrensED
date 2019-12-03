@@ -2,7 +2,7 @@
 /// Guilherme Salim de Barros - 18188 \\ Victor Botin Avelino - 18172
 ///
 
-    class Cidade : IComparable<Cidade>
+    class Cidade implements Comparable
     {
         //Atributos:
         private int idCidade;
@@ -11,16 +11,16 @@
         private int coordenadaY;
 
         //Constantes dos atributos:
-        const int inicioId = 0;
-        const int tamanhoId = 3;
-        const int inicioNome = inicioId + tamanhoId;
-        const int tamanhoNome = 15;
-        const int inicioX = inicioNome + tamanhoNome;
-        const int tamanhoX = 5;
-        const int inicioY = inicioX + tamanhoX;
-        const int tamanhoY = 5;
+        final int INICIOID = 0;
+        final int TAMANHOID = 3;
+        final int INICIONOME = INICIOID + TAMANHOID;
+        final int TAMANHONOME = 15;
+        final int INICIOX = INICIONOME + TAMANHONOME;
+        final int TAMANHOX = 5;
+        final int INICIOY = INICIOX + TAMANHOX;
+        final int TAMANHOY = 5;
 
-        //Getters dos atributos:
+        //Métodos acessores dos atributos:
         public int getIdCidade()
         {
              return this.idCidade;
@@ -48,7 +48,7 @@
 
         }
 
-        public string setNome(String novoNome) 
+        public string setNome(String novoNome) throws Exception
         { 
              if(this.novoNome.equals(""))
                     throw new Exception("Parâmetro nulo!");
@@ -56,17 +56,17 @@
             this.nome = novoNome;
         }
 
-        public int setCoordenadaX(int novaCoordenadaX)
+        public int setCoordenadaX(int novaCoordenadaX) throws Exception
         { 
-             if(this.novaCoordenadaX == null)
+             if(this.novaCoordenadaX.equals(""))
                     throw new Exception("Parâmetro nulo!");
 
             this.coordenadaX = novaCoordenadaX;
         }
 
-        public int setCoordenadaY(int novaCoordenadaY)
+        public int setCoordenadaY(int novaCoordenadaY) throws Exception
         { 
-             if(this.novaCoordenadaY == null)
+             if(this.novaCoordenadaY.equals(""))
                     throw new Exception("Parâmetro nulo!");
 
             this.coordenadaY = novaCoordenadaY;
@@ -75,12 +75,12 @@
 
         //Construtor da classe. Especificamente, este construtor atribui
         //aos atributos os dados de uma linha do arquivo texto.
-        public cidade(string linhaArquivo)
+        public cidade(String linhaArquivo)
         {
-            this.idCidade = int.Parse(linhaArquivo.Substring(inicioId, tamanhoId));
-            this.nome = linhaArquivo.Substring(inicioNome, tamanhoNome);
-            this.coordenadaX = int.Parse(linhaArquivo.Substring(inicioX, tamanhoX));
-            this.coordenadaY = int.Parse(linhaArquivo.Substring(inicioY, tamanhoY));
+            this.idCidade = Integer.parseInt(linhaArquivo.substring(INICIOID, TAMANHOID));
+            this.nome = linhaArquivo.substring(INICIONOME, TAMANHONOME);
+            this.coordenadaX = Integer.parseInt(linhaArquivo.substring(INICIOX, TAMANHOX));
+            this.coordenadaY = Integer.parseInt(linhaArquivo.substring(INICIOY, TAMANHOY));
         }
 
         public cidade(int i)
