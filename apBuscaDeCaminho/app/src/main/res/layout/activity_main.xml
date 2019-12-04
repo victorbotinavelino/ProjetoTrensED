@@ -31,6 +31,7 @@
                 android:textAlignment="center"
                 />
             <Spinner
+                android:id="@+id/spCidadeOrigem"
                 android:layout_width="100pt"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="21pt"
@@ -53,6 +54,7 @@
                 android:textAlignment="center"
                 />
             <Spinner
+                android:id="@+id/spCidadeDestino"
                 android:layout_width="100pt"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10pt"
@@ -67,6 +69,7 @@
         android:gravity="center"
         android:layout_marginTop="5pt">
         <Button
+            android:id="@+id/btnBuscar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Buscar"
@@ -78,11 +81,11 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:layout_gravity="center">
-    <LinearLayout
+    <ImageView
+        android:id="@+id/ivMapa"
         android:layout_width="120pt"
         android:layout_height="120pt"
-        android:layout_marginTop="2pt"
-        android:background="@drawable/mapa_espanha_portugal"></LinearLayout>
+        android:layout_marginTop="2pt"></ImageView>
 
 </LinearLayout>
       <LinearLayout
@@ -120,6 +123,7 @@
         android:gravity="center"
         android:layout_marginTop="12pt">
         <Button
+            android:id="@+id/btnAdicionarCidade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+ Cidade"

@@ -8,22 +8,22 @@ import java.lang.*;
 /// Guilherme Salim de Barros - 18188 \\ Victor Botin Avelino - 18172
 ///
 
-    public class Cidade implements Comparable<Cidade>, Serializable
+    public class Cidade implements Comparable<Cidade>, Serializable, Chaveavel
     {
         //Atributos:
         private int idCidade;
         private String nome;
-        private int coordenadaX;
-        private int coordenadaY;
+        private float coordenadaX;
+        private float coordenadaY;
 
         //Constantes dos atributos:
         final int INICIOID = 0;
-        final int TAMANHOID = 3;
+        final int TAMANHOID = 2;
         final int INICIONOME = INICIOID + TAMANHOID;
-        final int TAMANHONOME = 15;
+        final int TAMANHONOME = 16;
         final int INICIOX = INICIONOME + TAMANHONOME;
         final int TAMANHOX = 5;
-        final int INICIOY = INICIOX + TAMANHOX;
+        final int INICIOY = INICIOX + TAMANHOX + 1;
         final int TAMANHOY = 5;
 
         //Métodos acessores dos atributos:
@@ -35,11 +35,11 @@ import java.lang.*;
         {
              return this.nome;
         }
-        public int getCoordenadaX()
+        public float getCoordenadaX()
         {
              return this.coordenadaX;
         }
-        public int getCoordenadaY()
+        public float getCoordenadaY()
         {
              return this.coordenadaY;
         }
@@ -55,12 +55,12 @@ import java.lang.*;
             this.nome = novoNome;
         }
 
-        public void setCoordenadaX(int novaCoordenadaX) throws Exception
+        public void setCoordenadaX(float novaCoordenadaX) throws Exception
         {
             this.coordenadaX = novaCoordenadaX;
         }
 
-        public void setCoordenadaY(int novaCoordenadaY) throws Exception
+        public void setCoordenadaY(float novaCoordenadaY) throws Exception
         {
             this.coordenadaY = novaCoordenadaY;
         }
@@ -70,10 +70,11 @@ import java.lang.*;
         //aos atributos os dados de uma linha do arquivo texto.
         public Cidade(String linhaArquivo)
         {
-            this.idCidade = Integer.parseInt(linhaArquivo.substring(INICIOID, TAMANHOID));
-            this.nome = linhaArquivo.substring(INICIONOME, TAMANHONOME);
-            this.coordenadaX = Integer.parseInt(linhaArquivo.substring(INICIOX, TAMANHOX));
-            this.coordenadaY = Integer.parseInt(linhaArquivo.substring(INICIOY, TAMANHOY));
+
+            this.idCidade = Integer.parseInt(linhaArquivo.substring(INICIOID, TAMANHOID).trim());
+            this.nome = linhaArquivo.substring(INICIONOME, INICIONOME + TAMANHONOME).trim();
+            this.coordenadaX = Float.parseFloat(linhaArquivo.substring(INICIOX, TAMANHOX + INICIOX).trim().replace(',', '.'));
+            this.coordenadaY = Float.parseFloat(linhaArquivo.substring(INICIOY, TAMANHOY + INICIOY).trim().replace(',', '.'));
         }
 
         public Cidade(int i)
@@ -88,4 +89,10 @@ import java.lang.*;
         {
             return this.idCidade - c.idCidade;
         }
+
+        public String getChave()
+        {
+            return getNome();
+        }
+
     }

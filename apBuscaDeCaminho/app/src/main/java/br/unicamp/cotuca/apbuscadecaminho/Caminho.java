@@ -10,33 +10,33 @@ import java.lang.*;
 /// Guilherme Salim de Barros - 18188 \\ Victor Botin Avelino - 18172
 ///
 
-public class Caminho implements Comparable<Caminho>, Serializable
+public class Caminho implements Comparable<Caminho>, Serializable, Chaveavel
 {
         //Atributos:
-        private int idCidadeOrigem;
-        private int idCidadeDestino;
+        private String cidadeOrigem;
+        private String cidadeDestino;
         private int distancia;
         private int tempo;
         //Constantes dos atributos:
         final int INICIOIDORIGEM = 0;
-        final int TAMANHOIDORIGEM = 3;
+        final int TAMANHOIDORIGEM = 15;
         final int INICIOIDDESTINO = INICIOIDORIGEM + TAMANHOIDORIGEM;
-        final int TAMANHOIDDESTINO = 3;
+        final int TAMANHOIDDESTINO = 16;
         final int INICIODISTANCIA = INICIOIDDESTINO + TAMANHOIDDESTINO;
         final int TAMANHODISTANCIA = 5;
         final int INICIOTEMPO = INICIODISTANCIA + TAMANHODISTANCIA;
-        final int TAMANHOTEMPO = 4;
+        final int TAMANHOTEMPO = 3;
 
         //Métodos acessores dos atributos:
 
-        public int getIdCidadeOrigem()
+        public String getcidadeOrigem()
         {
-            return this.idCidadeOrigem;
+            return this.cidadeOrigem;
         }
 
-        public int getIdCidadeDestino()
+        public String getcidadeDestino()
         {
-            return this.idCidadeDestino;
+            return this.cidadeDestino;
         }
 
         public int getDistancia()
@@ -49,14 +49,14 @@ public class Caminho implements Comparable<Caminho>, Serializable
             return this.tempo;
         }
 
-        public void setIdCidadeOrigem(int novoId)
+        public void setcidadeOrigem(String novo)
         {
-            this.idCidadeOrigem = novoId;
+            this.cidadeOrigem = novo;
         }
 
-        public void setIdCidadeDestino(int novoId)
+        public void setcidadeDestino(String novo)
         {
-            this.idCidadeDestino = novoId;
+            this.cidadeDestino = novo;
         }
 
         public void setDistancia(int novaDistancia)
@@ -73,9 +73,9 @@ public class Caminho implements Comparable<Caminho>, Serializable
         //aos atributos os dados de uma linha do arquivo texto.
         public Caminho(String s)
         {
-            this.idCidadeOrigem = Integer.parseInt(s.substring(INICIOIDORIGEM, TAMANHOIDORIGEM)); 
-            this.idCidadeDestino = Integer.parseInt(s.substring(INICIOIDDESTINO, TAMANHOIDDESTINO));
-            this.distancia = Integer.parseInt(s.substring(INICIODISTANCIA, TAMANHODISTANCIA));
+            this.cidadeOrigem = s.substring(INICIOIDORIGEM, TAMANHOIDORIGEM).trim();
+            this.cidadeDestino = s.substring(INICIOIDDESTINO, TAMANHOIDDESTINO).trim();
+            this.distancia = Integer.parseInt(s.substring(INICIODISTANCIA, TAMANHODISTANCIA).trim());
             this.tempo = Integer.parseInt(s.substring(INICIOTEMPO, TAMANHOTEMPO));
         }   
 
@@ -84,10 +84,10 @@ public class Caminho implements Comparable<Caminho>, Serializable
             return this.distancia - caminho.distancia;
         }
 
-        public Caminho(int idCidadeOrigem, int idCidadeDestino)
+        public Caminho(String cidadeOrigem, String cidadeDestino)
         {
-            this.idCidadeOrigem = idCidadeOrigem;
-            this.idCidadeDestino = idCidadeDestino;
+            this.cidadeOrigem = cidadeOrigem;
+            this.cidadeDestino = cidadeDestino;
         }
 
         public Caminho(Caminho modelo) throws Exception
@@ -95,8 +95,8 @@ public class Caminho implements Comparable<Caminho>, Serializable
             if (modelo == null)
                 throw new Exception("Modelo ausente");
 
-            this.idCidadeOrigem = modelo.idCidadeOrigem;
-            this.idCidadeDestino = modelo.idCidadeDestino;
+            this.cidadeOrigem = modelo.cidadeOrigem;
+            this.cidadeDestino = modelo.cidadeDestino;
             this.distancia = modelo.distancia;
             this.tempo = modelo.tempo;
         }
@@ -119,5 +119,10 @@ public class Caminho implements Comparable<Caminho>, Serializable
     public int compareTo(Caminho c)
     {
         return this.distancia - c.distancia;
+    }
+
+    @Override
+    public String getChave() {
+        return null;
     }
 }

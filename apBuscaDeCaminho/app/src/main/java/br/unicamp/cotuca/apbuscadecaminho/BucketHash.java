@@ -4,6 +4,9 @@ import java.io.*;
 import java.lang.Comparable;
 import java.lang.*;
 
+///
+/// CLASSE ADAPTADA DA APOSTILA DO PROFESSOR FRANCISCO RODRIGUES.
+///
 
 public class BucketHash
     {
@@ -17,12 +20,12 @@ public class BucketHash
                 this.vetor[i] = new ListaSimples<Cidade>();
         }
 
-        public int hash(Cidade cidade)
+        public int hash(String cidade)
         {
             long total = 0;
 
-            for(int i = 0; i < cidade.getNome().length(); i++)
-                total += 37 * total + (int)cidade.getNome().charAt(i);
+            for(int i = 0; i < cidade.length(); i++)
+                total += 37 * total + (int)cidade.charAt(i);
 
             total = total % vetor.length -1;
             if (total < 0)
@@ -34,11 +37,9 @@ public class BucketHash
         public void inserir(Cidade cidade) throws Exception
         {
             int valorDeHash;
-            valorDeHash = hash(cidade);
+            valorDeHash = hash(cidade.getNome());
 
-            int indice;
-            for(indice = 0; indice < SIZE; indice++)
-                if(vetor[indice].existeDado(cidade))
+                if(vetor[valorDeHash].existeDado(cidade))
                     throw new Exception("O dado já existe.");
             
             vetor[valorDeHash].inserirEmOrdem(cidade);
@@ -47,10 +48,8 @@ public class BucketHash
         public void remover(Cidade cidade) throws Exception
         {
             int valorDeHash2;
-            valorDeHash2 = hash(cidade);
-
-             for(int indice = 0; indice < SIZE; indice++)
-                if(vetor[indice].existeDado(cidade))
+            valorDeHash2 = hash(cidade.getNome());
+                if(vetor[valorDeHash2].existeDado(cidade))
                 {
                     vetor[valorDeHash2].remover(cidade);
                     return;
@@ -60,5 +59,16 @@ public class BucketHash
             
             
         }
+
+        public Cidade buscarCidade(String nomeProcurada)
+        {
+            int indice = hash(nomeProcurada);
+            if(vetor[indice] == null)
+                vetor[indice] = new ListaSimples<>();
+
+            return vetor[indice].buscaChave(nomeProcurada);
+        }
+
+
 
     }

@@ -6,9 +6,9 @@ import java.lang.*;
 
 
 
-public class ListaSimples<Dado extends Comparable<Dado> & Serializable>
+public class ListaSimples<Dado extends Comparable<Dado> & Serializable & Chaveavel>
 {
-    private NoLista primeiro, ultimo, anterior, atual;
+    private NoLista<Dado> primeiro, ultimo, anterior, atual;
     int quantosNos;
 
     public ListaSimples() {
@@ -171,6 +171,19 @@ public class ListaSimples<Dado extends Comparable<Dado> & Serializable>
         // se a chave procurada foi ou não encontrado
     }
 
+    public Dado buscaChave(String chave)
+    {
+        atual = primeiro;
+        while(atual != null)
+        {
+            if(atual.getInfo().getChave().equals(chave))
+                return atual.getInfo();
+
+            atual = atual.getProx();
+        }
+        return null;
+    }
+
     public void inserirEmOrdem(Dado dados) {
         if (!existeDado(dados)) // existeDado configurou anterior e atual
         {                       // aqui temos certeza de que a chave não existe
@@ -230,4 +243,23 @@ public class ListaSimples<Dado extends Comparable<Dado> & Serializable>
         }
         catch (Exception e){}
     }
+
+    public Object[] toArray()
+    {
+        Object[] vetor = new Object[quantosNos];
+        atual = primeiro;
+        int indice = 0;
+        while(atual != null)
+        {
+            vetor[indice] = atual.getInfo();
+            atual = atual.getProx();
+            indice++;
+        }
+
+        return  vetor;
+
+    }
+
+
+
 }

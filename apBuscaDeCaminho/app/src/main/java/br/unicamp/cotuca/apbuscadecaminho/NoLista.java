@@ -3,7 +3,7 @@ package br.unicamp.cotuca.apbuscadecaminho;
 import java.io.Serializable;
 import java.io.*;
 
-public class NoLista<Dado extends Comparable<Dado> & Serializable>
+public class NoLista<Dado extends Comparable<Dado> & Serializable & Chaveavel>
 {
         Dado info;
         NoLista<Dado> prox;
@@ -32,10 +32,8 @@ public class NoLista<Dado extends Comparable<Dado> & Serializable>
         this.info = novoDado;
     }
 
-    public void setProx(NoLista<Dado> novoProx) throws Exception
+    public void setProx(NoLista<Dado> novoProx)
     {
-        if(novoProx.info == null)
-            throw new Exception("Parâmetro nulo!");
         this.prox = novoProx;
     }
 
